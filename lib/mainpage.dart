@@ -310,7 +310,6 @@ class _MainPageState extends State<MainPage> {
                                   inactiveColor: Colors.grey,
                                   onChanged: (double value) {
                                     setState(() {
-                                      _addchild = true;
                                       _borderradius = value;
                                     });
                                   },

@@ -1,16 +1,17 @@
-# containerfeatures
+# Container Shadow
 
-A new Flutter project.
+I made this app to look at when I am making an application and need help for box shadows. I hope it helps others too.
 
-## Getting Started
+## Screenshots
+(screen shots do not include the last commit which is related with border radius.
+### First Screen
 
-This project is a starting point for a Flutter application.
+| First Screen       |  First Screen          |
+| ------------- |:-------------:|
+| <img src="screenshots/1.png" alt="Screenshot" width="300">     | <img src="screenshots/2.png" alt="Screenshot" width="300"> |
 
-A few resources to get you started if this is your first Flutter project:
+### Second Screen
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| First Screen       |  First Screen          |
+| ------------- |:-------------:|
+| <img src="screenshots/3.png" alt="Screenshot" width="300">     | <img src="screenshots/4.png" alt="Screenshot" width="300"> |

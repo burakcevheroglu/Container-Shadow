@@ -19,6 +19,8 @@ double _spreadch = 0;
 double _blurch = 0;
 double _axisxch = 0;
 double _axisych = 0;
+double _borderradius = 0;
+double _borderadiusch = 0;
 
 class _MainPageState extends State<MainPage> {
   @override
@@ -27,37 +29,33 @@ class _MainPageState extends State<MainPage> {
       length: 3,
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(150),
-          child: AppBar(
-            centerTitle: true,
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  icon: Icon(Icons.home),
-                ),
-                Tab(icon: Icon(Icons.wb_shade_outlined)),
-                Tab(icon: Icon(Icons.wb_shade_outlined)),
-              ],
-            ),
-            title: const Text('Container Properties',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600)),
-            backgroundColor: Colors.orangeAccent,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(50),
-                    bottomRight: Radius.circular(50))),
-            
+        appBar: AppBar(
+          centerTitle: true,
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                icon: Icon(Icons.home),
+              ),
+              Tab(icon: Icon(Icons.wb_shade_outlined)),
+              Tab(icon: Icon(Icons.wb_shade_outlined)),
+            ],
           ),
+          title: const Text('Container Properties',
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600)),
+          backgroundColor: Colors.orangeAccent,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(50),
+                  bottomRight: Radius.circular(50))),
         ),
         body: Column(
           children: [
             const SizedBox(
-              height: 150,
+              height: 100,
             ),
             Container(
               width: double.infinity,
-              height: 350,
+              height: 400,
               decoration: const BoxDecoration(
                 color: Color(0xddeeeeeee),
                 borderRadius: BorderRadius.only(
@@ -242,7 +240,7 @@ class _MainPageState extends State<MainPage> {
                           ],
                         ),
                         const SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -250,7 +248,7 @@ class _MainPageState extends State<MainPage> {
                             SizedBox(
                                 width: 100,
                                 child: Text(
-                                  "Offset Y: ${_axisx.round() - 50}",
+                                  "Offset X: ${_axisx.round() - 50}",
                                   textAlign: TextAlign.right,
                                 )),
                             Expanded(
@@ -275,7 +273,7 @@ class _MainPageState extends State<MainPage> {
                             SizedBox(
                                 width: 100,
                                 child: Text(
-                                  "Offset X: ${_axisy.round() - 50}",
+                                  "Offset Y: ${_axisy.round() - 50}",
                                   textAlign: TextAlign.right,
                                 )),
                             Expanded(
@@ -291,6 +289,33 @@ class _MainPageState extends State<MainPage> {
                                   },
                                   min: 0.0,
                                   max: 100.0),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20,),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            SizedBox(
+                                width: 100,
+                                child: Text(
+                                  "Border: ${_borderradius.round()}",
+                                  textAlign: TextAlign.right,
+                                )),
+                            Expanded(
+                              child: Slider(
+                                  value: _borderradius,
+                                  label: _borderradius.toString(),
+                                  activeColor: Colors.orangeAccent,
+                                  inactiveColor: Colors.grey,
+                                  onChanged: (double value) {
+                                    setState(() {
+                                      _addchild = true;
+                                      _borderradius = value;
+                                    });
+                                  },
+                                  min: 0.0,
+                                  max: 150.0),
                             ),
                           ],
                         ),
@@ -321,7 +346,7 @@ class _MainPageState extends State<MainPage> {
                                   inactiveColor: Colors.grey,
                                   onChanged: (double value) {
                                     setState(() {
-                                      _addchild=true;
+                                      _addchild = true;
                                       _spreadch = value;
                                     });
                                   },
@@ -347,7 +372,7 @@ class _MainPageState extends State<MainPage> {
                                   inactiveColor: Colors.grey,
                                   onChanged: (double value) {
                                     setState(() {
-                                      _addchild=true;
+                                      _addchild = true;
                                       _blurch = value;
                                     });
                                   },
@@ -357,7 +382,7 @@ class _MainPageState extends State<MainPage> {
                           ],
                         ),
                         const SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -376,7 +401,7 @@ class _MainPageState extends State<MainPage> {
                                   inactiveColor: Colors.grey,
                                   onChanged: (double value) {
                                     setState(() {
-                                      _addchild=true;
+                                      _addchild = true;
                                       _axisxch = value;
                                     });
                                   },
@@ -402,12 +427,41 @@ class _MainPageState extends State<MainPage> {
                                   inactiveColor: Colors.grey,
                                   onChanged: (double value) {
                                     setState(() {
-                                      _addchild=true;
+                                      _addchild = true;
                                       _axisych = value;
                                     });
                                   },
                                   min: 0.0,
                                   max: 100.0),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            SizedBox(
+                                width: 100,
+                                child: Text(
+                                  "Border: ${_borderadiusch.round()}",
+                                  textAlign: TextAlign.right,
+                                )),
+                            Expanded(
+                              child: Slider(
+                                  value: _borderadiusch,
+                                  label: _borderadiusch.toString(),
+                                  activeColor: Colors.orangeAccent,
+                                  inactiveColor: Colors.grey,
+                                  onChanged: (double value) {
+                                    setState(() {
+                                      _addchild = true;
+                                      _borderadiusch = value;
+                                    });
+                                  },
+                                  min: 0.0,
+                                  max: 50.0),
                             ),
                           ],
                         ),
@@ -425,20 +479,24 @@ class _MainPageState extends State<MainPage> {
                 width: _sliderwidth,
                 height: _sliderheight,
                 duration: const Duration(milliseconds: 300),
-                decoration: BoxDecoration(color: _containercolor, boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(.5),
-                    spreadRadius: _spread,
-                    blurRadius: _blur,
-                    offset: Offset(_axisx - 50, _axisy - 50),
-                  )
-                ]),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(_borderradius),
+                    color: _containercolor,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        spreadRadius: _spread,
+                        blurRadius: _blur,
+                        offset: Offset(_axisx - 50, _axisy - 50),
+                      )
+                    ]),
                 child: (_addchild)
                     ? Align(
                         child: Container(
                         height: _sliderheight / 3,
                         width: _sliderwidth / 3,
                         decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(_borderadiusch),
                             boxShadow: [
                               BoxShadow(
                                   color: Colors.grey.withOpacity(.5),
@@ -447,8 +505,7 @@ class _MainPageState extends State<MainPage> {
                                   offset: Offset(_axisxch - 50, _axisych - 50)),
                             ],
                             image: const DecorationImage(
-                                image:
-                                    AssetImage('assets/dog.jpeg'),
+                                image: AssetImage('assets/dog.jpeg'),
                                 fit: BoxFit.cover)),
                       ))
                     : null,
